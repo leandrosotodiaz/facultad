@@ -1,0 +1,95 @@
+<doctype html>
+
+<html lang="es">
+
+<html>
+
+<head>
+
+			<title> Formulario ABM </title> <!-- aparece en la solapita del documento -->
+			<h1> ABM </h1>
+	<meta http-equiv="content-type" content ="text/html;charset=UTF-8" />
+
+
+	<style>
+
+	div.clase1 {             <!-- div#nombreclase si es un único div o si es el div contenedor -->
+		height: 35%;
+		width: 30%;           <!-- podría poner un form {} para darle estilo al form y no agregar un div -->
+		border:solid;
+		border-width: 1px;
+		border-color: black;
+		background-color: pink;
+		position:absolute;
+	}
+
+	</style>
+
+</head>
+
+
+<body>
+
+<div class=clase1>
+	<form id="formulario" target="_blank" method="get" > <!-- con el blank cuando se valide se va a una nuneva pestaña -->
+
+<ul> <!-- los pongo en una lista para poder ordenarlos mejor estéticamente y para poder agregar el clear both -->
+	<li style="clear: both;"> <label style="width: 15%; float: left;" > Apellido: </label> <!-- width para que los label midan lo mismo y queden parejos -->
+	<input id= "inpapellido" type="text" style="margin-left:7%" required maxlength="15" > </input> 
+
+	</li>
+<br>
+	<li style="clear: both;"> <label style="width: 15%; float: left;" > Nombre: </label>
+	<input id= "inpnombre" type="text" style="margin-left:7%" required maxlength="15" > </input> </li>
+<br>
+	<li style="clear: both;"> <label style="width: 15%; float: left;" > Saldo: </label>
+	<input id= "inpsaldo" type="number" style="margin-left:7%" required min="0" max="500" placeholder="0-500" > </input> </li>
+</ul>
+<br>
+
+<input value="ALTA" type="submit" method="get" id="btnalta" style= "margin-left: 14%; width: 20%; margin-bottom:2%;"  onclick="Dar_Alta()"  > </input> <!-- porcentaje con respecto al div contenedor (en este caso) o al viewport si no hubiera div contenedor -->
+<input value="BAJA" type="submit" action="./baja.html" method="get" id="btnbaja" style= "margin-left: 5%; width: 20%;" onclick="Dar_Baja()" disabled  > </input>
+<input value="MODIF." type="submit" action="./modificar.html" method="get" id="btnmodificar" style= "margin-left: 5%; width: 20%;" > </input>
+
+<button type="reset" id="btnborrarcampos" style= "right:1%; top: 3%; width: 17%; height:20%; position:absolute;" > Borrar todo </button>
+
+	</form>
+</div>
+
+
+</body>
+
+
+
+<script>
+
+var formulario = document.getElementById("formulario");
+var apellido = document.getElementById("inpapellido");
+var nombre = document.getElementById('inpnombre');
+var saldo = document.getElementById("inpsaldo");
+var alta = document.getElementById('btnalta');
+var baja = document.getElementById('btnbaja');
+var modificar = document.getElementById('btnmodificar');
+var BOTON = document.getElementById("btnborrarcampos");
+
+saldo.onchange = function () {
+if (apellido.value != "" )
+	if (nombre.value != "" )
+		 {
+		alta.disabled = false;
+		baja.disabled = false; }
+
+} ;
+
+
+alta.onclick = function () {
+             location.href = "http://www.google.com";
+}
+
+
+
+
+</script>
+
+
+</html>
